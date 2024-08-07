@@ -1,0 +1,29 @@
+// sidebar
+$menuText: #bfcbd9;
+$menuActiveText: #f4f4f5;
+$subMenuActiveText: #f4f4f5;
+
+$menuBg: #304156;
+$menuHover: #263445;
+
+$subMenuBg: #1f2d3d;
+$subMenuHover: #001528;
+
+$sideBarWidth: 210px;
+
+:export {
+  menuColor: $menuText;
+  menuLightColor: $menuActiveText;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+
+  menuBackground: $menuBg;
+  menuLightBackground: #263445;
+
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}
