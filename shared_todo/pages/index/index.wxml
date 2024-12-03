@@ -1,0 +1,89 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- Add Task Form -->
+    <view class="add-task">
+      <input class="title-input" 
+             placeholder="Enter task title" 
+             value="{{newTaskTitle}}" 
+             bindinput="onTitleInput"/>
+      <textarea class="content-input" 
+                placeholder="Enter task description (optional)" 
+                value="{{newTaskContent}}" 
+                bindinput="onContentInput"/>
+      <input class="count-input" 
+             type="number" 
+             placeholder="Enter count (optional)" 
+             value="{{newTaskCount}}" 
+             bindinput="onCountInput"/>
+      <button class="add-btn" bindtap="addTask">Add Task</button>
+    </view>
+
+    <!-- Active Tasks -->
+    <view class="task-list">
+      <text class="section-title">Active Tasks</text>
+      <view wx:for="{{activeTasks}}" 
+            wx:key="id" 
+            class="task-item {{item.editing ? 'editing' : ''}}">
+        <view class="task-header">
+          <checkbox checked="{{item.completed}}" 
+                    bindtap="toggleTask" 
+                    data-id="{{item.id}}"/>
+          <text class="task-count" wx:if="{{item.count > 0}}">{{item.count}}</text>
+        </view>
+        
+        <view class="task-content" wx:if="{{!item.editing}}">
+          <text class="task-title">{{item.title}}</text>
+          <text class="task-description">{{item.content}}</text>
+        </view>
+
+        <view class="task-edit" wx:if="{{item.editing}}">
+          <input value="{{item.title}}" 
+                 data-id="{{item.id}}" 
+                 bindinput="onEditTitleInput"/>
+          <textarea value="{{item.content}}" 
+                    data-id="{{item.id}}" 
+                    bindinput="onEditContentInput"/>
+        </view>
+
+        <view class="task-actions">
+          <button class="action-btn" 
+                  bindtap="editTask" 
+                  data-id="{{item.id}}">
+            {{item.editing ? 'Save' : 'Edit'}}
+          </button>
+          <button class="action-btn" 
+                  bindtap="decrementCount" 
+                  data-id="{{item.id}}" 
+                  wx:if="{{item.count > 0}}">
+            Complete One
+          </button>
+          <button class="action-btn delete" 
+                  bindtap="deleteTask" 
+                  data-id="{{item.id}}">
+            Delete
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <!-- Completed Tasks -->
+    <view class="task-list completed">
+      <text class="section-title">Completed Tasks</text>
+      <view wx:for="{{completedTasks}}" 
+            wx:key="id" 
+            class="task-item completed">
+        <view class="task-content">
+          <text class="task-title">{{item.title}}</text>
+          <text class="task-description">{{item.content}}</text>
+        </view>
+        <button class="action-btn delete" 
+                bindtap="deleteTask" 
+                data-id="{{item.id}}">
+          Delete
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

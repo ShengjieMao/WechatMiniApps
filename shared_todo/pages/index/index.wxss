@@ -1,0 +1,126 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.add-task {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.title-input, .content-input, .count-input {
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+
+.content-input {
+  height: 100rpx;
+}
+
+.add-btn {
+  background: #007AFF;
+  color: white;
+  border: none;
+}
+
+.task-list {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.task-item {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.task-count {
+  background: #007AFF;
+  color: white;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.task-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  word-wrap: break-word;
+}
+
+.task-description {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+  display: block;
+  text-align: left;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+}
+
+.action-btn {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  min-width: auto;
+}
+
+.action-btn.delete {
+  background: #FF3B30;
+  color: white;
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+}
+
+.task-edit input,
+.task-edit textarea {
+  width: 100%;
+  margin-bottom: 10rpx;
+  padding: 10rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
